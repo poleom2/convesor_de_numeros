@@ -1,0 +1,204 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* FUNDO */
+body {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: #fff;
+    min-height: 100vh;
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+}
+
+/* CONTAINER PRINCIPAL */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.content {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 15px;
+    width: 400px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* TEXTO */
+.content p {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* INPUT */
+.input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+/* BOTÕES */
+.boton {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.boton button {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: #3b82f6;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* HOVER */
+.boton button:hover {
+    background: #2563eb;
+    transform: scale(1.05);
+}
+
+/* RESULTADOS */
+.covercao {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.covercao div {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* TITULO RESULTADO */
+.covercao div p:first-child {
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+/* VALOR RESULTADO */
+.covercao div p:last-child {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 5px;
+    color: #22c55e;
+}
+/* BOTÃO */
+#helpBtn {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: none;
+    background: #22c55e;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    transition: 0.3s;
+}
+
+#helpBtn:hover {
+    transform: scale(1.1) rotate(10deg);
+}
+
+/* PAINEL */
+#helpPanel {
+    position: fixed;
+    right: 20px;
+    bottom: 90px;
+    width: 320px;
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 12px;
+    color: white;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.7);
+
+    /* animação */
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+/* QUANDO ABRE */
+#helpPanel:not(.hidden) {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* ESCONDER */
+.hidden {
+    display: none;
+}
+
+/* BOTÕES INTERNOS */
+.help-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.help-buttons button {
+    padding: 8px;
+    border: none;
+    border-radius: 6px;
+    background: #3b82f6;
+    color: white;
+    cursor: pointer;
+}
+
+/* TEXTO */
+#explicacao {
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* FECHAR */
+#closeHelp {
+    margin-top: 15px;
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 6px;
+    background: #ef4444;
+    color: white;
+    cursor: pointer;
+}
+#explicacao {
+    max-height: 250px;
+    overflow-y: auto;
+    background: rgba(0,0,0,0.2);
+    padding: 10px;
+    border-radius: 8px;
+}

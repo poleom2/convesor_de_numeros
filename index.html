@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Actividade 2 _ Conversor de Base</h1>
+    </header>
+    <main>
+        <divc class="content">
+            <p>
+                CONVESOR - DIGITE E SELECIONE DE ORIGEM
+            </p>
+            <div>
+                <input  type="Digite o numero a comvertir" class="input">
+                <div class="boton">
+                    <button class="base10">Base 10 </button>
+                    <button class="base2">Base 2</button>
+                    <button class="base8">Base 8</button>
+                    <button class="base16">Base 16</button>
+                </div>
+                <div class="covercao">
+                  <div>
+                    <p>Decimal</p>
+                    <p class="base10_resultado"></p>
+                  </div>
+                  <div>
+                    <p>Binario</p>
+                    <p class="base2_resultado"></p>
+                  </div><div>
+                    <p>Octal</p>
+                    <p class="base8_resultado"></p>
+                  </div><div>
+                    <p>hexadecimal</p>
+                    <p class="base16_resultado"></p>
+                  </div>
+                </div>
+            </div>
+        </divc>
+        <!-- BOTÃO -->
+<button id="helpBtn">?</button>
+
+<!-- PAINEL AVANÇADO -->
+<div id="helpPanel" class="hidden">
+    <h2>Como Converter</h2>
+
+    <div id="explicacao">
+        Clique em um botão para ver o passo a passo 👇
+    </div>
+
+    <div class="help-buttons">
+        <button onclick="explicar(10)">Decimal</button>
+        <button onclick="explicar(2)">Binário</button>
+        <button onclick="explicar(8)">Octal</button>
+        <button onclick="explicar(16)">Hexadecimal</button>
+    </div>
+
+    <button id="closeHelp">Fechar</button>
+</div>
+    
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
