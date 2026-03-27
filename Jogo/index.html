@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Conversor Game ULTRA</title>
+
+<style>
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    background: radial-gradient(circle at top, #0f0f1a, #050508);
+    color: #fff;
+}
+
+/* LAYOUT */
+.app {
+    display: flex;
+    height: 100vh;
+}
+
+/* CONTAINER */
+.container {
+    margin: auto;
+    width: 520px;
+    background: rgba(0,0,0,0.6);
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid #00f7ff;
+    box-shadow: 
+        0 0 10px #00f7ff,
+        0 0 40px #00f7ff33,
+        inset 0 0 20px #00f7ff22;
+    backdrop-filter: blur(15px);
+    text-align: center;
+    transition: 0.3s;
+}
+
+/* EFEITOS ACERTO/ERRO */
+.container.certo {
+    box-shadow: 0 0 20px #00ff87, 0 0 60px #00ff87;
+}
+
+.container.errado {
+    box-shadow: 0 0 20px #ff004c, 0 0 60px #ff004c;
+}
+
+/* INPUTS */
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin: 6px 0;
+    border-radius: 10px;
+    border: 1px solid #00f7ff;
+    background: black;
+    color: #00f7ff;
+    outline: none;
+    box-shadow: 0 0 10px #00f7ff55;
+}
+
+/* BOTÕES */
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* BOTÕES NEON */
+.start {
+    background: #00ff87;
+    box-shadow: 0 0 15px #00ff87, 0 0 40px #00ff87;
+}
+
+.responder {
+    background: #00c6ff;
+    box-shadow: 0 0 15px #00c6ff, 0 0 40px #00c6ff;
+}
+
+.parar {
+    background: #ff004c;
+    box-shadow: 0 0 15px #ff004c, 0 0 40px #ff004c;
+}
+
+/* HOVER */
+button:hover {
+    transform: scale(1.05);
+    filter: brightness(1.3);
+}
+
+/* NÚMERO */
+.numero {
+    font-size: 40px;
+    margin: 20px 0;
+    font-weight: bold;
+    color: #00f7ff;
+    text-shadow: 
+        0 0 10px #00f7ff,
+        0 0 30px #00f7ff,
+        0 0 60px #00f7ff;
+}
+
+/* INFO */
+.info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+/* TEXTO NEON */
+h1, h2 {
+    color: #00f7ff;
+    text-shadow: 0 0 10px #00f7ff, 0 0 30px #00f7ff;
+}
+
+/* MENSAGEM */
+.mensagem {
+    margin-top: 10px;
+    font-weight: bold;
+    height: 20px;
+    text-shadow: 0 0 10px white;
+}
+
+/* RANKING */
+.sidebar {
+    width: 300px;
+    background: rgba(0,0,0,0.8);
+    padding: 20px;
+    border-left: 1px solid #00f7ff;
+    box-shadow: -5px 0 20px #00f7ff33;
+}
+
+.ranking div {
+    background: black;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    border: 1px solid #00f7ff;
+    color: #00f7ff;
+    box-shadow: 0 0 10px #00f7ff44;
+}
+
+.app {
+    display: flex;
+    height: 100vh;
+}
+
+/* GAME */
+.container {
+    margin: auto;
+    width: 520px;
+    background: rgba(255,255,255,0.08);
+    padding: 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.container.certo {
+    box-shadow: 0 0 20px #00ff87;
+}
+
+.container.errado {
+    box-shadow: 0 0 20px #ff4b2b;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin: 6px 0;
+    border-radius: 10px;
+    border: none;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.start { background: #00ff87; color: black; }
+.responder { background: #0072ff; color: white; }
+.parar { background: #ff4b2b; color: white; }
+
+.numero {
+    font-size: 36px;
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.mensagem {
+    margin-top: 10px;
+    font-weight: bold;
+    height: 20px;
+}
+
+/* RANKING */
+.sidebar {
+    width: 300px;
+    background: rgba(0,0,0,0.3);
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.ranking div {
+    background: rgba(255,255,255,0.1);
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<div class="container" id="box">
+    <h1>🎮 Conversor ULTRA</h1>
+
+    <input id="nome" placeholder="Seu nome">
+
+    <select id="tipo">
+        <option value="">Tipo</option>
+        <option value="binario">Binário → Decimal</option>
+        <option value="decimal">Decimal → Binário</option>
+        <option value="octal">Octal → Decimal</option>
+        <option value="hex">Hex → Decimal</option>
+    </select>
+
+    <select id="nivel">
+        <option value="facil">Fácil</option>
+        <option value="medio">Médio</option>
+        <option value="dificil">Difícil</option>
+    </select>
+
+    <button class="start" onclick="iniciar()">▶️ Iniciar</button>
+
+    <div class="numero" id="numero">---</div>
+
+    <input id="resposta" placeholder="Resposta">
+
+    <button class="responder" onclick="verificar()">Responder</button>
+    <button class="parar" onclick="parar()">⏹️ Parar</button>
+
+    <div class="mensagem" id="msg"></div>
+
+    <div class="info">
+        <span>🏆 <span id="pontos">0</span></span>
+        <span>⏱️ <span id="tempo">20</span></span>
+    </div>
+</div>
+
+<div class="sidebar">
+    <h2>🏆 Ranking</h2>
+    <div id="ranking"></div>
+</div>
+
+</div>
+
+<script>
+let valor, tipo, pontos=0, tempo, timer, jogando=false;
+let ranking = JSON.parse(localStorage.getItem("ranking")) || [];
+
+document.getElementById("resposta").addEventListener("keypress", e=>{
+    if(e.key==="Enter") verificar();
+});
+
+function iniciar(){
+    let nome = nomeInput.value.trim();
+    if(!nome || !tipoSelect.value){
+        alert("Preencha tudo!");
+        return;
+    }
+    pontos=0;
+    jogando=true;
+    atualizar();
+    gerar();
+}
+
+function gerar(){
+    if(!jogando) return;
+
+    clearInterval(timer);
+    tipo = tipoSelect.value;
+    let nivel = nivelSelect.value;
+    let max = nivel=="facil"?20:nivel=="medio"?100:300;
+
+    valor = Math.floor(Math.random()*max)+1;
+
+    numero.innerText =
+        tipo=="binario"?valor.toString(2):
+        tipo=="octal"?valor.toString(8):
+        tipo=="hex"?valor.toString(16).toUpperCase():
+        valor;
+
+    resposta.value="";
+    msg.innerText="";
+    iniciarTempo();
+}
+
+function iniciarTempo(){
+    tempo=20;
+    tempoSpan.innerText=tempo;
+
+    timer=setInterval(()=>{
+        tempo--;
+        tempoSpan.innerText=tempo;
+        if(tempo<=0){
+            clearInterval(timer);
+            mostrar("⏰ Tempo!");
+            gerar();
+        }
+    },1000);
+}
+
+function verificar(){
+    if(!jogando) return;
+
+    clearInterval(timer);
+
+    let correta =
+        tipo=="decimal"?valor.toString(2):
+        valor.toString();
+
+    if(resposta.value.toUpperCase()==correta.toUpperCase()){
+        pontos+=10;
+        mostrar("✅ Acertou!", true);
+    } else {
+        mostrar("❌ "+correta, false);
+    }
+
+    atualizar();
+    setTimeout(gerar,1200);
+}
+
+function mostrar(txt, certo){
+    msg.innerText = txt;
+    box.className="container "+(certo?"certo":"errado");
+    setTimeout(()=>box.className="container",600);
+}
+
+function atualizar(){
+    pontosSpan.innerText=pontos;
+}
+
+function parar(){
+    if(!jogando) return;
+
+    jogando=false;
+    clearInterval(timer);
+
+    let nome = nomeInput.value;
+
+    ranking.push({nome, pontos});
+    ranking.sort((a,b)=>b.pontos-a.pontos);
+
+    localStorage.setItem("ranking", JSON.stringify(ranking));
+
+    renderRanking();
+}
+
+function renderRanking(){
+    rankingDiv.innerHTML="";
+    ranking.forEach(r=>{
+        let div=document.createElement("div");
+        div.innerText = r.nome+" - "+r.pontos+" pts";
+        rankingDiv.appendChild(div);
+    });
+}
+
+const nomeInput = document.getElementById("nome");
+const tipoSelect = document.getElementById("tipo");
+const nivelSelect = document.getElementById("nivel");
+const numero = document.getElementById("numero");
+const resposta = document.getElementById("resposta");
+const msg = document.getElementById("msg");
+const pontosSpan = document.getElementById("pontos");
+const tempoSpan = document.getElementById("tempo");
+const rankingDiv = document.getElementById("ranking");
+const box = document.getElementById("box");
+
+renderRanking();
+</script>
+
+</body>
+</html>
